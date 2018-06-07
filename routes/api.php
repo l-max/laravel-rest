@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,7 +10,21 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/login','PassportController@login');
+Route::post('/register','PassportController@register');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function()
+{
+    Route::get('user', 'PassportController@details');
+    Route::resource('todo', 'TodoController');
+
+//    Route::post('/todo/','TodoController@store');
+//    Route::get('/todo/','ApiController@index');
+//    Route::get('/todo/{todo}','ApiController@show');
+//    Route::put('/todo/{todo}','ApiController@update');
+//    Route::delete('/todo/{todo}','ApiController@destroy');
 });
+
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});

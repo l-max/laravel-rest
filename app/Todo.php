@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Todo
+ * @package App
+ * @property string $description
+ * @property int $user_id
+ */
 class Todo extends Model
 {
     /**
@@ -14,5 +20,5 @@ class Todo extends Model
     /**
      * @var array
      */
-    protected $fillable = ['todo', 'user_id'];
+    protected $fillable = ['description'];
 }
