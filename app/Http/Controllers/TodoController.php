@@ -19,8 +19,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = auth()->user()->todo();
-
+        $todos = auth()->user()->todo()->getResults();
         return response()->json([
             'success' => true,
             'data' => $todos
