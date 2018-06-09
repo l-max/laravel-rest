@@ -15,11 +15,18 @@ class TodoController extends Controller
     /**
      * Display a listing of the todos.
      *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $todos = auth()->user()->todo()->getResults();
+        if (is_numeric($request->done)) {
+            $todos = auth()->user()->todo()
+                ->where('done', (int) $request->done)
+                ->getResults();
+        } else {
+            $todos = auth()->user()->todo()->getResults();
+        }
         return response()->json([
             'success' => true,
             'data' => $todos
@@ -41,6 +48,7 @@ class TodoController extends Controller
         $todo = new Todo();
         $todo->description = $request->description;
         $todo->user_id = auth()->user()->id;
+        $todo->done = 0;
 
         if (auth()->user()->todo()->save($todo)) {
             return response()->json([

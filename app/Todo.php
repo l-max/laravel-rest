@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Todo
  * @package App
  * @property string $description
+ * @property int $done
  * @property int $user_id
  */
 class Todo extends Model
