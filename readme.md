@@ -27,3 +27,4 @@ Rest api includes:
 - Rename `.env.example` to `.env` and fill mysql configuration.
 - go to project root and run `php artisan migrate` to migrate database
 - run `php artisan passport:install`
+- run `php artisan serve` for running on the `127.0.0.1:8000`
