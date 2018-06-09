@@ -28,3 +28,18 @@ Rest api includes:
 - go to project root and run `php artisan migrate` to migrate database
 - run `php artisan passport:install`
 - run `php artisan serve` for running on the `127.0.0.1:8000`
+
+## API
+
+### Todo
+
+- post api/todo/ - create new todo
+- get api/todo/ - get list of todos
+- get api/todo/{id} - get concrete todo
+- put api/todo/{id} - update todo
+- delete api/todo/{id} - delete todo
+
+### Auth
+
+- post api/login/ - login
+- post api/register/ - register
